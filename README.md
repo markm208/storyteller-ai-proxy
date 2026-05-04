@@ -64,7 +64,30 @@ wrangler login
 
 This opens a browser window to authenticate.
 
-### Step 6: Add Your API Key(s)
+### Step 6: Deploy
+
+***Important:* Run this command from a terminal opened in your cloned repo directory**
+
+If you haven't already, navigate to your cloned repo directory:
+```bash
+cd path/to/your/cloned/repo
+```
+
+This is how Wrangler knows where to find your Worker code to deploy. Now, deploy your Worker:
+
+```bash
+wrangler deploy
+```
+
+> **First time only:** Cloudflare will ask you to register a `workers.dev` subdomain. Say yes and choose a subdomain name (e.g., `markm208`). This is a one-time setup for your Cloudflare account.
+
+Cloudflare will output your Worker's URL, something like:
+
+```
+https://storyteller-ai-proxy.yourusername.workers.dev
+```
+
+### Step 7: Add Your API Key(s)
 
 **Run the following commands from your cloned repo directory.**
 
@@ -81,23 +104,6 @@ wrangler secret put ANTHROPIC_API_KEY
 ```
 
 When prompted, paste your API key. It will be stored securely and never appear in your code.
-
-### Step 7: Deploy
-
-***Important:* Run this command from a terminal opened in your cloned repo directory** 
-
-This is how Wrangler knows where to find your Worker code to deploy:
-
-```bash
-cd path/to/your/cloned/repo
-wrangler deploy
-```
-
-Cloudflare will output your Worker's URL, something like:
-
-```
-https://storyteller-ai-proxy.yourusername.workers.dev
-```
 
 ### Step 8: Add URL to Your Playbacks
 
