@@ -152,9 +152,14 @@ If `provider` is omitted, it defaults to `"openai"`.
 
 **"Forbidden" error:** Check that `ALLOWED_ORIGIN` in `worker.js` exactly matches your site's origin (including `https://`).
 
-**"API key not configured" error:** Make sure you ran `wrangler secret put` for the provider you're trying to use.
+**"API key not configured" error:** Make sure you ran `wrangler secret put` for the provider you're trying to use. You can verify your secrets are set with:
+```bash
+wrangler secret list
+```
 
 **CORS errors in browser console:** The Worker's `ALLOWED_ORIGIN` doesn't match the domain where your playback is hosted.
+
+**AI features not working on published playback:** Make sure `aiApiUrl` is set in your `book.json` and that you regenerated the playback files after adding it. The URL must be embedded in `playback.js` at export time.
 
 ## Updating
 
@@ -162,6 +167,23 @@ If you need to update the Worker code:
 
 1. Make your changes to `worker.js`
 2. Run `wrangler deploy` again
+
+## Deleting and Starting Over
+
+If you want to completely remove your Worker and start fresh:
+
+**Using the command line:**
+```bash
+wrangler delete storyteller-ai-proxy
+```
+
+**Using the Cloudflare dashboard:**
+1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
+2. Navigate to **Workers & Pages**
+3. Click on your Worker
+4. Go to **Settings** → **Delete**
+
+After deleting, you can re-deploy by running `wrangler deploy` again. Note that you'll need to re-add your API key secrets after deleting.
 
 ## License
 
