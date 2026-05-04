@@ -1,0 +1,5 @@
+# Wrangler local cache (contains account-specific info)
+.wrangler/
+
+# Node modules (if any)
+node_modules/
