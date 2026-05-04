@@ -79,7 +79,7 @@ This is how Wrangler knows where to find your Worker code to deploy. Now, deploy
 wrangler deploy
 ```
 
-> **First time only:** Cloudflare will ask you to register a `workers.dev` subdomain. Say yes and choose a subdomain name (e.g., `markm208`). This is a one-time setup for your Cloudflare account.
+> **First time only:** Cloudflare will ask you to register a `workers.dev` subdomain. Say yes and choose a subdomain name (e.g., `my-github-username` or `my-favorite-handle`). This is a one-time setup for your Cloudflare account.
 
 Cloudflare will output your Worker's URL, something like:
 
