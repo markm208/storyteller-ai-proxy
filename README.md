@@ -46,7 +46,7 @@ const ALLOWED_ORIGIN = "https://yourdomain.com";              // Custom domain
 
 This ensures only your site can use your Worker (and your API quota).
 
-### Step 4: Install Wrangler
+### Step 4: Install Wrangler (if not already installed)
 
 Wrangler is Cloudflare's CLI tool. This can be run from any directory:
 
@@ -79,13 +79,15 @@ This is how Wrangler knows where to find your Worker code to deploy. Now, deploy
 wrangler deploy
 ```
 
-> **First time only:** Cloudflare will ask you to register a `workers.dev` subdomain. Say yes and choose a subdomain name (e.g., `my-github-username` or `my-favorite-handle`). This is a one-time setup for your Cloudflare account.
+> **First time only:** Cloudflare will ask you to register a `workers.dev` subdomain. Say yes and choose a subdomain name (e.g., `my-favorite-handle` or `my-github-username`). This is a one-time setup for your Cloudflare account.
 
 Cloudflare will output your Worker's URL, something like:
 
 ```
 https://storyteller-ai-proxy.yourusername.workers.dev
 ```
+
+You will need this URL in Step 8 to connect your playback to the Worker.
 
 ### Step 7: Add Your API Key(s)
 
