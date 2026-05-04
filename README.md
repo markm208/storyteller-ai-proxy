@@ -25,7 +25,14 @@ Your API key never touches the browser.
 
 Click the green **"Use this template"** button at the top of this repo to create your own copy.
 
-### Step 2: Configure Your Domain
+### Step 2: Clone Your Repo Locally
+
+```bash
+git clone https://github.com/yourusername/your-repo-name.git
+cd your-repo-name
+```
+
+### Step 3: Configure Your Domain
 
 Edit `worker.js` and change the `ALLOWED_ORIGIN` to your hosting domain:
 
@@ -39,15 +46,17 @@ const ALLOWED_ORIGIN = "https://yourdomain.com";              // Custom domain
 
 This ensures only your site can use your Worker (and your API quota).
 
-### Step 3: Install Wrangler
+### Step 4: Install Wrangler
 
-Wrangler is Cloudflare's CLI tool:
+Wrangler is Cloudflare's CLI tool. This can be run from any directory:
 
 ```bash
 npm install -g wrangler
 ```
 
-### Step 4: Login to Cloudflare
+### Step 5: Login to Cloudflare
+
+This can be run from any directory:
 
 ```bash
 wrangler login
@@ -55,7 +64,9 @@ wrangler login
 
 This opens a browser window to authenticate.
 
-### Step 5: Add Your API Key(s)
+### Step 6: Add Your API Key(s)
+
+**Run the following commands from your cloned repo directory.**
 
 Store your API key(s) as Cloudflare secrets. You need at least one:
 
@@ -71,9 +82,14 @@ wrangler secret put ANTHROPIC_API_KEY
 
 When prompted, paste your API key. It will be stored securely and never appear in your code.
 
-### Step 6: Deploy
+### Step 7: Deploy
+
+***Important:* Run this command from a terminal opened in your cloned repo directory** 
+
+This is how Wrangler knows where to find your Worker code to deploy:
 
 ```bash
+cd path/to/your/cloned/repo
 wrangler deploy
 ```
 
@@ -83,7 +99,9 @@ Cloudflare will output your Worker's URL, something like:
 https://storyteller-ai-proxy.yourusername.workers.dev
 ```
 
-### Step 7: Add URL to Your Playbacks
+### Step 8: Add URL to Your Playbacks
+
+> **Note:** This step assumes you've already created a book or standalone playback using the [Storyteller VS Code extension](https://github.com/markm208/storyteller). See that repo for instructions on creating and publishing playbacks.
 
 In your Storyteller book's `book.json`, add the `aiApiUrl` field:
 
